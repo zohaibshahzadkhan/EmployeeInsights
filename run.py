@@ -65,6 +65,42 @@ def display_results(analysis_results):
     except Exception as e:
         print(f"An error occurred while displaying results: {str(e)}")
 
+def save_summary_to_sheet(summary, sheet_name, worksheet_name):
+    """
+    Save the summary to a Google Sheet.
+
+    Args:
+        summary (dict): Summary to be saved.
+        sheet_name (str): Name of the Google Sheet.
+        worksheet_name (str): Name of the worksheet to which the summary will be saved.
+    """
+    try:
+        print("Saving results to employees_summary Google worksheet")
+        # Open the Google Sheet
+        sheet = GSPREAD_CLIENT.open(sheet_name)
+
+        # Select the worksheet
+        worksheet = sheet.worksheet(worksheet_name)
+
+        # Clear existing content
+        worksheet.clear()
+
+        # Convert the summary to a list of lists
+        rows = [["Analysis", "Result"]] + [[key, value] for key, value in summary.items()]
+
+        # Resize worksheet
+        worksheet.resize(rows=len(rows), cols=2)
+
+        # Update the worksheet with the summary data
+        cell_list = worksheet.range(f"A1:B{len(rows)}")
+        for cell in cell_list:
+            cell.value = rows[cell.row - 1][cell.col - 1]
+        worksheet.update_cells(cell_list)
+
+        print("Summary saved to Google Sheet successfully.")
+    except Exception as e:
+        print(f"An error occurred while saving the summary to Google Sheet: {str(e)}")
+
 def main():
     """
     Run all program functions
@@ -85,6 +121,10 @@ def main():
         
         # Display analysis results
         display_results(analysis_results)
+
+        # Save summary to Google Sheet
+        save_summary_to_sheet(analysis_results, "employee_data", "employees_summary")
+
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
