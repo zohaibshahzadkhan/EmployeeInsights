@@ -1,5 +1,6 @@
 import pandas as pd
 import gspread
+from tabulate import tabulate
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -49,7 +50,21 @@ def analyze_data(employees_data_frame):
     except Exception as e:
         print(f"An error occurred during data analysis: {str(e)}")
         return None
-    
+
+def display_results(analysis_results):
+    """
+    Display the analysis results in a table format.
+
+    Args:
+        analysis_results (dict): Analysis results.
+    """
+    try:
+        headers = ["Analysis", "Result"]
+        rows = [[key, value] for key, value in analysis_results.items()]
+        print(tabulate(rows, headers=headers, tablefmt="grid"))
+    except Exception as e:
+        print(f"An error occurred while displaying results: {str(e)}")
+
 def main():
     """
     Run all program functions
@@ -63,11 +78,13 @@ def main():
 
         # Analyze data
         analysis_results = analyze_data(employees_data_frame)
-        print(analysis_results)
-        
+
         if analysis_results is None:
             print("Analysis could not be performed due to missing or invalid data.")
             return
+        
+        # Display analysis results
+        display_results(analysis_results)
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
