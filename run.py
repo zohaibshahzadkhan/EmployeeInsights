@@ -238,6 +238,21 @@ def main():
             except Exception as e:
                 print(f"An error occurred: {str(e)}")
         
+        elif user_choice == '3':            
+            try:
+                # Convert employees_data to DataFrame
+                employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
+                
+                # Display existing data
+                print("Existing Employee Data:")
+                print(tabulate(employees_data_frame, headers='keys', tablefmt='grid'))
+                
+            except Exception as e:
+                print(f"An error occurred: {str(e)}")
+        
+        else:
+            print("\nInvalid choice. Please enter 1, 2, or 3.")
+
 if __name__ == "__main__":
     main()
         
