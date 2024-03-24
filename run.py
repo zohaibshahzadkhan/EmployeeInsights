@@ -253,6 +253,17 @@ def main():
         else:
             print("\nInvalid choice. Please enter 1, 2, or 3.")
 
+        # Ask the user if they want to continue or terminate the program
+        while True:
+            choice = input("Do you want to continue? (yes/no): ").lower()
+            if choice == "yes":
+                break
+            elif choice == "no":
+                print("Thank you for using the Employee Insight Survey Analyzer. Goodbye!")
+                return
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+
 if __name__ == "__main__":
     main()
         
