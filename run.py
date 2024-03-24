@@ -135,23 +135,52 @@ def save_summary_to_sheet(summary, sheet_name, worksheet_name):
     except Exception as e:
         print(f"An error occurred while saving the summary to Google Sheet: {str(e)} \n")
 
+def validate_employee_input(name, age, salary):
+    """
+    Validate user input for new employee data.
+
+    Args:
+        name (str): Employee name.
+        age (str): Employee age.
+        salary (str): Employee salary.
+
+    Returns:
+        bool: True if input is valid, False otherwise.
+    """
+    # Check if name is not empty and consists of alphabetic characters
+    if not name.isalpha():
+        print("Error: Employee name must only contain alphabetic characters.")
+        return False
+
+    # Check if age is a non-negative integer and less than 200
+    if not age.isdigit() or int(age) < 0 or int(age) >= 200:
+        print("Error: Employee age must be a non-negative integer less than 200.")
+        return False
+
+    # Check if salary is a non-negative number
+    if not salary.replace('.', '', 1).isdigit() or float(salary) < 0:
+        print("Error: Employee salary must be a non-negative number.")
+        return False
+
+    return True
+
 def main():
     """
     Run all program functions
     """
     print("Welcome to Employee Insight Survey Analyzer \n")
 
+    employees = SHEET.worksheet('employees')
+    employees_data = employees.get_all_values()
+    
     while True:
-        print("\n1: Generate summary from Employee Google Sheet")
-        print("2: Add new employee")
-        print("3: View existing employee data \n")
+        print("\n1: Generate Summary from Employee Google Sheet")
+        print("2: Add New Employee to Employee Google Sheet")
+        print("3: View Existing Employee Data from Employee Google Sheet\n")
 
         user_choice = input("Enter your choice (1, 2, or 3):")
 
         if user_choice == '1':
-            employees = SHEET.worksheet('employees')
-            employees_data = employees.get_all_values()
-
             try:
                 # Convert employees_data to DataFrame
                 employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
@@ -172,6 +201,43 @@ def main():
             except Exception as e:
                 print(f"An error occurred: {str(e)}")
 
+        elif user_choice == '2':
+            try:
+                # Convert employees_data to DataFrame
+                employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
+
+                # Display existing data
+                print("\nRetrieve Existing Employee Data from Google Sheet:\n")
+                print(tabulate(employees_data_frame, headers='keys', tablefmt='grid'))
+
+                # Ask for new employee information
+                while True:
+                    new_employee_name = input("\nEnter employee name: ")
+                    new_employee_age = input("Enter employee age:")
+                    new_employee_salary = input("Enter employee salary:")
+
+                    # Validate inputs using the separate function
+                    if validate_employee_input(new_employee_name, new_employee_age, new_employee_salary):
+                        break  # If all validations pass, break out of the loop
+
+                # Create a new DataFrame for the new employee
+                new_employee_row = pd.DataFrame([[new_employee_name, new_employee_age, new_employee_salary]], columns=employees_data_frame.columns)
+
+                # Concatenate existing DataFrame with the new employee DataFrame
+                employees_data_frame = pd.concat([employees_data_frame, new_employee_row], ignore_index=True)
+
+                # Convert DataFrame to list of lists for updating the worksheet
+                updated_data = employees_data_frame.values.tolist()
+
+                # Update the worksheet with the updated data
+                employees.clear()
+                employees.update([employees_data[0]] + updated_data)
+
+                print("Employee information added successfully. \n")
+
+            except Exception as e:
+                print(f"An error occurred: {str(e)}")
+        
 if __name__ == "__main__":
     main()
         
