@@ -24,11 +24,14 @@ def analyze_data(employees_data_frame):
     Returns:
         dict: Analysis results.
     """
-    try:
-        # Convert 'Age' and 'Salary' columns to numeric
-        employees_data_frame['Age'] = pd.to_numeric(employees_data_frame['Age'], errors='coerce')
-        employees_data_frame['Salary'] = pd.to_numeric(employees_data_frame['Salary'], errors='coerce')
 
+    # Validate input data
+    if not validate_input_data(employees_data_frame):
+      print("Input data validation failed. Exiting program.")
+      return
+    
+    try:
+        
         # Drop rows with NaN values
         employees_data_frame.dropna(subset=['Age', 'Salary'], inplace=True)
 
@@ -50,6 +53,37 @@ def analyze_data(employees_data_frame):
     except Exception as e:
         print(f"An error occurred during data analysis: {str(e)}")
         return None
+
+def validate_input_data(employees_data_frame):
+    """
+    Validate the input data before analysis.
+
+    Args:
+        employees_data_frame (DataFrame): DataFrame containing the survey data.
+
+    Returns:
+        bool: True if validation succeeds, False otherwise.
+    """
+    # Check if expected columns are present
+    expected_columns = ['Name', 'Age', 'Salary']
+    if not all(col in employees_data_frame.columns for col in expected_columns):
+        print("Error: Missing expected columns in input data.")
+        return False
+    
+    # Validate 'Age' and 'Salary' columns
+    try:
+        employees_data_frame['Age'] = pd.to_numeric(employees_data_frame['Age'], errors='raise')
+        employees_data_frame['Salary'] = pd.to_numeric(employees_data_frame['Salary'], errors='raise')
+    except ValueError:
+        print("Error: 'Age' and 'Salary' columns must contain numerical data.")
+        return False
+    
+    # Check for missing or invalid values
+    if employees_data_frame.isnull().values.any():
+        print("Error: Input data contains missing values.")
+        return False
+    
+    return True
 
 def display_results(analysis_results):
     """
@@ -111,7 +145,7 @@ def main():
     try:
         # Convert employees_data to DataFrame
         employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
-
+ 
         # Analyze data
         analysis_results = analyze_data(employees_data_frame)
 
