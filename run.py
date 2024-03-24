@@ -211,7 +211,6 @@ def main():
     print("Welcome to Employee Insight Survey Analyzer \n")
 
     employees = SHEET.worksheet('employees')
-    employees_data = employees.get_all_values()
 
     while True:
         print("\n1: Generate Summary from Employee Google Sheet")
@@ -221,6 +220,7 @@ def main():
         user_choice = input("Enter your choice (1, 2, or 3):")
 
         if user_choice == '1':
+            employees_data = employees.get_all_values()
             try:
                 # Convert employees_data to DataFrame
                 employees_data_frame = pd.DataFrame(
@@ -246,6 +246,7 @@ def main():
                 print(f"An error occurred: {str(e)}")
 
         elif user_choice == '2':
+            employees_data = employees.get_all_values()
             try:
                 # Convert employees_data to DataFrame
                 employees_data_frame = pd.DataFrame(
@@ -297,6 +298,7 @@ def main():
                 print(f"An error occurred: {str(e)}")
 
         elif user_choice == '3':
+            employees_data = employees.get_all_values()
             try:
                 # Convert employees_data to DataFrame
                 employees_data_frame = pd.DataFrame(
