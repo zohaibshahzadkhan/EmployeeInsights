@@ -133,35 +133,45 @@ def save_summary_to_sheet(summary, sheet_name, worksheet_name):
 
         print("Summary saved to Google Sheet successfully.")
     except Exception as e:
-        print(f"An error occurred while saving the summary to Google Sheet: {str(e)}")
+        print(f"An error occurred while saving the summary to Google Sheet: {str(e)} \n")
 
 def main():
     """
     Run all program functions
     """
-    employees = SHEET.worksheet('employees')
-    employees_data = employees.get_all_values()
+    print("Welcome to Employee Insight Survey Analyzer \n")
 
-    try:
-        # Convert employees_data to DataFrame
-        employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
- 
-        # Analyze data
-        analysis_results = analyze_data(employees_data_frame)
+    while True:
+        print("\n1: Generate summary from Employee Google Sheet")
+        print("2: Add new employee")
+        print("3: View existing employee data \n")
 
-        if analysis_results is None:
-            print("Analysis could not be performed due to missing or invalid data.")
-            return
+        user_choice = input("Enter your choice (1, 2, or 3):")
+
+        if user_choice == '1':
+            employees = SHEET.worksheet('employees')
+            employees_data = employees.get_all_values()
+
+            try:
+                # Convert employees_data to DataFrame
+                employees_data_frame = pd.DataFrame(employees_data[1:], columns=employees_data[0])
+
+                # Analyze data
+                analysis_results = analyze_data(employees_data_frame)
+
+                if analysis_results is None:
+                    print("Analysis could not be performed due to missing or invalid data.")
+                    continue
+
+                # Display analysis results
+                display_results(analysis_results)
+
+                # Save summary to Google Sheet
+                save_summary_to_sheet(analysis_results, "employee_data", "employees_summary")
+
+            except Exception as e:
+                print(f"An error occurred: {str(e)}")
+
+if __name__ == "__main__":
+    main()
         
-        # Display analysis results
-        display_results(analysis_results)
-
-        # Save summary to Google Sheet
-        save_summary_to_sheet(analysis_results, "employee_data", "employees_summary")
-
-
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
-
-print("Welcome to Employee Insight Survey Analyzer")
-main()
