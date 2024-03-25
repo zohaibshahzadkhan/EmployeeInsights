@@ -57,3 +57,9 @@ To use the program, follow these steps:
      - The program will retrieve existing employee data from the Google Sheet named `employee_data`.
      - It will display the data in a tabular format, showing the names, ages, and salaries of all employees currently stored in the sheet.
       ![employee data](assets/media/guide/option3_01.png)
+
+### Flowchart
+
+<br>
+
+![Flowchart Image](assets/media/flow_chart.png)
