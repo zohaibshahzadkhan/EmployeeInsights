@@ -109,3 +109,26 @@ The Employee Insight Survey Analyzer is designed to provide efficient analysis o
 
 - **User Input Gathering**: Incorporate a feedback mechanism to gather user input and suggestions for further improvements to the application.
 
+## Technologies and Libraries Used
+
+The Employee Insight Survey Analyzer is built using the following technologies and libraries:
+
+- **Python**: The core programming language used for development.
+- **Google Sheets API**: Used to interact with Google Sheets for data retrieval and storage.
+- **gspread**: Python library for accessing Google Sheets.
+- **Pandas**: Data manipulation and analysis library used for processing survey data.
+- **tabulate**: Python library for formatting tabular data for display.
+- **google-auth**: Library for authenticating with Google services.
+- **Credentials**: Used for handling Google OAuth2 credentials.
+
+## Tools and Programs Used
+
+During the development of this application, the following programs have been used:
+
+- **Visual Studio Code**: Integrated Development Environment (IDE) used for writing and debugging code.
+- **Lucid**: Tool used for creating diagrams and visual representations of system architecture.
+- **Heroku**: Cloud platform used for deployment and hosting of the application.
+- **Git**: Version control system used for tracking changes to the codebase.
+- **GitHub**: Web-based hosting service for version control and collaboration.
+- **Google Spreadsheet**: Online spreadsheet tool used for storing and managing survey data.
+- **CI Python Linter**: Continuous integration tool used for Python linting and code quality checks.
