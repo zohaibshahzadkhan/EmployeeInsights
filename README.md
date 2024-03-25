@@ -132,3 +132,45 @@ During the development of this application, the following programs have been use
 - **GitHub**: Web-based hosting service for version control and collaboration.
 - **Google Spreadsheet**: Online spreadsheet tool used for storing and managing survey data.
 - **CI Python Linter**: Continuous integration tool used for Python linting and code quality checks.
+
+
+
+## Deployment
+
+### Cloning & Forking
+#### Fork
+1. On GitHub.com, navigate to the [zohaibshahzadkhan/EmployeeInsights](https://github.com/zohaibshahzadkhan/EmployeeInsights) repository.
+2. In the top-right corner of the page, click Fork.
+3. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.
+4. Add a description to your fork.
+5. Click Create fork.
+
+#### Clone
+1. Above the list of files click the button that says 'Code'.
+2. Copy the URL for the repository.
+3. Open Terminal. Change the directory to the location where you want the cloned directory.
+4. Type git clone, and then paste the URL
+5. Press Enter.
+
+### Local Deployment
+1. Sign up to [Gitpod](https://gitpod.io/)
+2. Download the Gitpod browser extension.
+3. On GitHub.com, navigate to the [zohaibshahzadkhan/EmployeeInsights](https://github.com/zohaibshahzadkhan/EmployeeInsights) repository.
+4. Above the list of files click the button that says 'Gitpod'.
+5. Once open you will need to install the libraries, you can do this by typing "pip3 install -r requirements.txt" into the terminal
+   
+## Remote Deployment
+
+The program can be deployed to Heroku. Follow these steps after forking/cloning the repository:
+
+1. Create a new app on Heroku.
+2. Choose a name for your app.
+3. Go to the settings tab.
+4. Scroll down to Config Vars and click on "Reveal Config Vars".
+5. Add `CREDS` as the key and paste the content of the Google API creds file into the value field.
+6. Add another config named `PORT` with the value `8000`.
+7. Set the buildpacks to Python and Node.js in that order.
+8. Link your Heroku app to your repository.
+9. Click on Deploy.
+10. Once deployed, the page will provide the URL to access the application.
+11. The live link can be found here: [Employee Insight Survey Analyzer](https://employee-insights-b63786ebfbf5.herokuapp.com/) 
