@@ -60,6 +60,18 @@ To use the program, follow these steps:
 
 ### Flowchart
 
-<br>
 
 ![Flowchart Image](assets/media/flow_chart.png)
+
+## User Story
+
+| Story Number | User Story                                                                                     | Description                                                                                                                                                                 |
+|--------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1            | As a user, I want to be able to analyze employee survey data stored in a Google Sheet         | So I can gain insights into employee demographics and trends.                                                                                                               |
+| 2            | As a user, I want to add new employee data to the Google Sheet easily                          | So I can keep the employee database up-to-date.                                                                                                                              |
+| 3            | As a user, I want to view existing employee data from the Google Sheet in a clear format       | So I can quickly understand the composition of our workforce.                                                                                                                |
+| 4            | As a user, I want the program to validate input data for new employees                         | So I can ensure that accurate information is added to the employee database.                                                                                                 |
+| 5            | As a user, I want the program to perform various analyses on the employee survey data          | Such as identifying the youngest and oldest employees, to help me understand the workforce distribution.                                                                     |
+| 6            | As a user, I want the program to generate comprehensive summaries based on the survey data     | So I can present key findings to management and stakeholders.                                                                                                                |
+| 7            | As a user, I want the program to be easy to use and navigate                                   | So that users with varying technical skills can utilize it effectively.                                                                                                       |
+| 8            | As a user, I want the program to save analysis summaries to a separate worksheet within Google Sheet | So that historical data can be maintained for future reference.                                                                                                            |
