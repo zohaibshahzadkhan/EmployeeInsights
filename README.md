@@ -133,7 +133,45 @@ During the development of this application, the following programs have been use
 - **Google Spreadsheet**: Online spreadsheet tool used for storing and managing survey data.
 - **CI Python Linter**: Continuous integration tool used for Python linting and code quality checks.
 
+## Testing
 
+### Validator Testing
+
+The Code Institute Python Linter confirms that the code is error-free.
+
+![employee data](assets/media/linter.png)
+
+## Manual Testing for Survey Analyzer
+
+### Option 1: Generate Summary from Employee Google Sheet
+
+| Test | Description | Expected Outcome | Result |
+|------|-------------|------------------|--------|
+| 1    | Valid Data | Ensure the Google Sheet contains valid employee data | Program successfully retrieves and analyzes the data |
+| 2    | Missing Columns | Remove one or more expected columns from the input data | Program detects missing columns and displays an error message |
+| 3    | Non-Numeric Age | Enter non-numeric values for the 'Age' column | Program detects non-numeric values and displays an error message |
+| 4    | Non-Numeric Salary | Enter non-numeric values for the 'Salary' column | Program detects non-numeric values and displays an error message |
+| 5    | Missing Values | Introduce missing values in the input data | Program detects missing values and displays an error message |
+| 6    | Analysis - Age Distribution | Analyze the data and check age distribution results | Program accurately calculates the age distribution |
+| 7    | Analysis - Salary Distribution | Analyze the data and check salary distribution results | Program accurately calculates the salary distribution |
+| 8    | Analysis - Youngest Employee | Verify the name of the youngest employee | Program correctly identifies the youngest employee |
+| 9    | Analysis - Oldest Employee | Verify the name of the oldest employee | Program correctly identifies the oldest employee |
+| 10   | Analysis - Employees under 30 with Salary < 20000 | Verify the count of employees under 30 with salary less than 20000 | Program accurately counts the employees meeting the criteria |
+| 11   | Analysis - Total Employees Surveyed | Check the total count of employees surveyed | Program accurately counts the total number of employees |
+
+### Option 2: Add New Employee to Employee Google Sheet
+
+| Test | Description | Expected Outcome | Result |
+|------|-------------|------------------|--------|
+| 1    | Valid Data | Add a new employee with valid data | Program successfully adds the new employee to the Google Sheet |
+| 2    | Invalid Data | Attempt to add a new employee with invalid data | Program detects invalid data and displays an error message |
+| 3    | Google Sheet Update | Verify that the Google Sheet is updated after adding a new employee | Google Sheet reflects the addition of the new employee |
+
+### Option 3: View Existing Employee Data from Employee Google Sheet
+
+| Test | Description | Expected Outcome | Result |
+|------|-------------|------------------|--------|
+| 1    | Valid Data | Ensure the Google Sheet contains valid employee data | Program successfully retrieves and displays the existing employee data |
 
 ## Deployment
 
