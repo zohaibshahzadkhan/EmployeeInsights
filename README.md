@@ -12,11 +12,7 @@ Click here to use the program here: [Employee Insight Survey Analyzer](https://e
 ![Program Screen](assets/media/main_image.png)
 
 # Introduction
-Comprehending your workforce as an employer is crucial to making well-informed decisions and cultivating a happy workplace. Employers may easily extract valuable insights from their current data pool by using the Employee Insight Survey Analyzer, which offers an intuitive interface for employee data analysis.
-
-# Employee Insight Survey Analyzer
-
-Welcome to the Employee Insight Survey Analyzer! This Python application is designed to help employers analyze survey data from their employees stored in a Google Sheet. The program offers various options to analyze data, add new employee information, and view existing employee data.
+Managing your workforce as an employer is crucial to making well-informed decisions and cultivating a happy workplace. Employers may easily extract valuable insights from their current data pool by using the Employee Insight Survey Analyzer, which offers an intuitive interface for employee data analysis.
 
 ## How to Use
 
@@ -27,8 +23,6 @@ Upon running the program, you'll be presented with a main menu offering the foll
 2. **Add New Employee to Employee Google Sheet**: Add new employee data to the Google Sheet.
   
 3. **View Existing Employee Data from Employee Google Sheet**: View existing employee data stored in the Google Sheet.
-
-4. **Exit**: Exit the program.
 
 To use the program, follow these steps:
 
@@ -119,8 +113,7 @@ The Employee Insight Survey Analyzer is built using the following technologies a
 - **Pandas**: Data manipulation and analysis library used for processing survey data.
 - **tabulate**: Python library for formatting tabular data for display.
 - **google-auth**: Library for authenticating with Google services.
-- **Credentials**: Used for handling Google OAuth2 credentials.
-
+  
 ## Tools and Programs Used
 
 During the development of this application, the following programs have been used:
@@ -201,7 +194,7 @@ The Code Institute Python Linter confirms that the code is error-free.
 
 | Test | Description | Expected Outcome | Result |
 |------|-------------|------------------|--------|
-| 1    | Valid Data | Ensure the Google Sheet contains valid employee data | Program successfully retrieves and analyzes the data |
+| 1    | Valid Data | Ensure the Google Sheet contains valid employee data | Program successfully retrieves employee data, analyzes the data and Save summary to Google Sheet |
 | 2    | Missing Columns | Remove one or more expected columns from the input data | Program detects missing columns and displays an error message |
 | 3    | Non-Numeric Age | Enter non-numeric values for the 'Age' column | Program detects non-numeric values and displays an error message |
 | 4    | Non-Numeric Salary | Enter non-numeric values for the 'Salary' column | Program detects non-numeric values and displays an error message |
@@ -275,7 +268,7 @@ https://codeinstitute.net/
 
 ### Libraries and Tools
 
-The Survey Analyzer application utilizes several libraries and tools to facilitate its functionality. We would like to extend our gratitude to the developers and contributors of the following:
+The Survey Analyzer application utilizes several libraries and tools to facilitate its functionality. I would like to extend our gratitude to the developers and contributors of the following:
 
 - **Pandas**: Used for data manipulation and analysis.
 - **gspread**: Utilized for accessing and modifying Google Sheets.
