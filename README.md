@@ -75,3 +75,37 @@ To use the program, follow these steps:
 | 6            | As a user, I want the program to generate comprehensive summaries based on the survey data     | So I can present key findings to management and stakeholders.                                                                                                                |
 | 7            | As a user, I want the program to be easy to use and navigate                                   | So that users with varying technical skills can utilize it effectively.                                                                                                       |
 | 8            | As a user, I want the program to save analysis summaries to a separate worksheet within Google Sheet | So that historical data can be maintained for future reference.                                                                                                            |
+
+## Features
+
+The Employee Insight Survey Analyzer is designed to provide efficient analysis of survey data from employees stored in a Google Sheet. Here's a deeper look at its key features:
+
+### 1. Data Analysis
+   - **Comprehensive Analysis**: Utilizing the Pandas library, the application performs comprehensive analysis on employee data, including age and salary distributions. This allows employers to gain valuable insights into the demographics of their workforce and identify any salary trends.
+
+### 2. Google Sheets Integration
+   - **Seamless Data Retrieval**: Through the use of the `gspread` library and Google Sheets API, the application seamlessly retrieves survey data from the designated Google Sheet named `employee_data`. This integration ensures that the latest employee data is used for analysis.
+   - **Adding New Employees**: Employers can easily add new employee data to the Google Sheet directly from the application. This ensures that the database remains up-to-date without the need for manual data entry.
+
+### 3. User-Friendly Interface
+   - **Intuitive Navigation**: The application provides a simple and intuitive menu-driven interface, allowing users to easily select and execute various options such as generating summaries, adding new employees, or viewing existing data.
+   - **Error Handling**: Robust error handling mechanisms are implemented to validate input data. In case of any errors, informative error messages are displayed to guide users on how to rectify them, ensuring data accuracy and integrity.
+
+### 4. Summary Saving
+   - **Data Preservation**: Upon analysis, the application saves comprehensive summaries to a separate worksheet named `employee_summary` within the Google Sheet. This allows employers to maintain historical data and refer back to previous analysis results for future reference and comparison.
+  
+## Future Features
+
+### 1. Export to CSV
+
+- **Data Export**: Add functionality to export analysis results to CSV format.
+
+### 2. Filtering Options
+
+- **Segmented Analysis**: Provide filtering options for analysis results, allowing users to focus on specific area.
+
+
+### 3. Feedback Mechanism
+
+- **User Input Gathering**: Incorporate a feedback mechanism to gather user input and suggestions for further improvements to the application.
+
