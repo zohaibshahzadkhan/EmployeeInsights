@@ -265,4 +265,35 @@ The program can be deployed to Heroku. Follow these steps after forking/cloning 
 8. Link your Heroku app to your repository.
 9. Click on Deploy.
 10. Once deployed, the page will provide the URL to access the application.
-11. The live link can be found here: [Employee Insight Survey Analyzer](https://employee-insights-b63786ebfbf5.herokuapp.com/) 
+11. The live link can be found here: [Employee Insight Survey Analyzer](https://employee-insights-b63786ebfbf5.herokuapp.com/)
+    
+## Credits and Acknowledgements
+
+Code instutie for the deployment terminal - 
+https://codeinstitute.net/
+
+
+### Libraries and Tools
+
+The Survey Analyzer application utilizes several libraries and tools to facilitate its functionality. We would like to extend our gratitude to the developers and contributors of the following:
+
+- **Pandas**: Used for data manipulation and analysis.
+- **gspread**: Utilized for accessing and modifying Google Sheets.
+- **tabulate**: Employed for displaying data in a tabular format.
+- **Google Sheets API**: Integrated for interaction with Google Sheets.
+- **Google OAuth2 Library**: Enabled authentication for accessing Google Sheets.
+- **Visual Studio Code**: The integrated development environment used for writing and testing the code.
+- **Heroku**: Utilized for deploying the application to a remote server.
+- **Git and GitHub**: Used for version control and collaboration during the development process.
+- **Excel**: Used for manual testing and verification of data integrity.
+- **Lucidchart**: Utilized for visualizing data models and workflows.
+  
+### Special Thanks
+
+Special thanks to the Code Institute for providing guidance and resources that have helped in the development of this project. Additionally, I would like to express our appreciation to the Open Source community for their continuous support and contributions to the development ecosystem.
+
+
+
+
+
+
