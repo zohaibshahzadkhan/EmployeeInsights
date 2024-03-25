@@ -42,8 +42,6 @@ To use the program, follow these steps:
     ![summary display](assets/media/guide/option1_02.png)
      - Finally, it will save the summary data to a separate worksheet named `employee_summary` within the same Google Sheet for future reference.
     ![summary](assets/media/guide/option1_04.png)
-    <br>
-    ![options screen](assets/media/guide/option1_03.png)
 
    - **Add New Employee to Employee Google Sheet**:
      - Choose option 2 from the main menu.
